@@ -1,5 +1,5 @@
 {
-  "name": "realtime",
+  "name": "real-time-object-detection-tensorflowjs",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -37,5 +37,5 @@
     ]
   },
   "keywords": [],
-  "description": ""
+  "description": "Real Time Object Detection Tensorflow.JS"
 }
