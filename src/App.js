@@ -1,10 +1,11 @@
 // Import dependencies
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, Fragment } from "react";
 import * as tf from "@tensorflow/tfjs";
 import * as cocossd from "@tensorflow-models/coco-ssd";
 import Webcam from "react-webcam";
 import "./App.css";
 import { drawRect } from "./utilities";
+import { Camera } from "react-cam";
 
 function App() {
   const webcamRef = useRef(null);
@@ -19,7 +20,6 @@ function App() {
       detect(net);
     }, 10);
   };
-
   const detect = async (net) => {
     // Check data is available
     if (
@@ -33,31 +33,40 @@ function App() {
       const videoHeight = webcamRef.current.video.videoHeight;
 
       // Set video width
+      //Change
       webcamRef.current.video.width = videoWidth;
       webcamRef.current.video.height = videoHeight;
+      //Change END
+
+      //CHANGE
 
       // Set canvas height and width
       canvasRef.current.width = videoWidth;
       canvasRef.current.height = videoHeight;
+      //CHANGE END
 
+      //CHANGE
+      //CHANGE END
       // Make Detections
       const obj = await net.detect(video);
       console.log(obj);
-      
+
       // Draw mesh
       const ctx = canvasRef.current.getContext("2d");
-      drawRect(obj, ctx); 
+      drawRect(obj, ctx);
     }
   };
 
-  useEffect(()=>{runCoco()},[]);
+  useEffect(() => {
+    runCoco();
+  }, []);
 
   return (
     <div className="App">
       <header className="App-header">
         <Webcam
           ref={webcamRef}
-          muted={true} 
+          muted={true}
           style={{
             position: "absolute",
             marginLeft: "auto",
@@ -66,11 +75,10 @@ function App() {
             right: 0,
             textAlign: "center",
             zindex: 9,
-            width: 640,
-            height: 480,
+            width: 320,
+            height: 240
           }}
         />
-
         <canvas
           ref={canvasRef}
           style={{
@@ -81,8 +89,8 @@ function App() {
             right: 0,
             textAlign: "center",
             zindex: 8,
-            width: 640,
-            height: 480,
+            width: 150,
+            height: 200
           }}
         />
       </header>
