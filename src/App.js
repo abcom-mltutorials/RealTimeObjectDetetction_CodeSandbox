@@ -2,7 +2,7 @@
 import React, { useRef, useState, useEffect, Fragment } from "react";
 import * as tf from "@tensorflow/tfjs";
 import * as cocossd from "@tensorflow-models/coco-ssd";
-import Webcam from "react-webcam";
+import WebCam from "react-webcam";
 import "./App.css";
 import { drawRectangle } from "./utilities";
 import { Camera } from "react-cam";
@@ -64,7 +64,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Webcam
+        <WebCam
           ref={webcamref}
           muted={true}
           style={{
