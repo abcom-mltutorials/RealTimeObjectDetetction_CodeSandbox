@@ -1,4 +1,4 @@
-export const drawRect = (detections, ctx) => {
+export const drawRectangle = (detections, ctx) => {
   // Loop through each prediction
   detections.forEach((prediction) => {
     // Extract boxes and classes
