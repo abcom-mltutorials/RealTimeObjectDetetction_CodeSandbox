@@ -8,8 +8,8 @@ import { drawRectangle } from "./utilities";
 import { Camera } from "react-cam";
 
 function App() {
-  const webcamRef = useRef(null);
-  const canvasRef = useRef(null);
+  const webcamref = useRef(null);
+  const canvasref = useRef(null);
 
   // Main function
   const runCoco = async () => {
@@ -23,26 +23,26 @@ function App() {
   const detect = async (net) => {
     // Check data is available
     if (
-      typeof webcamRef.current !== "undefined" &&
-      webcamRef.current !== null &&
-      webcamRef.current.video.readyState === 4
+      typeof webcamref.current !== "undefined" &&
+      webcamref.current !== null &&
+      webcamref.current.video.readyState === 4
     ) {
       // Get Video Properties
-      const video = webcamRef.current.video;
-      const videoWidth = webcamRef.current.video.videoWidth;
-      const videoHeight = webcamRef.current.video.videoHeight;
+      const video = webcamref.current.video;
+      const videoWidth = webcamref.current.video.videoWidth;
+      const videoHeight = webcamref.current.video.videoHeight;
 
       // Set video width
       //Change
-      webcamRef.current.video.width = videoWidth;
-      webcamRef.current.video.height = videoHeight;
+      webcamref.current.video.width = videoWidth;
+      webcamref.current.video.height = videoHeight;
       //Change END
 
       //CHANGE
 
       // Set canvas height and width
-      canvasRef.current.width = videoWidth;
-      canvasRef.current.height = videoHeight;
+      canvasref.current.width = videoWidth;
+      canvasref.current.height = videoHeight;
       //CHANGE END
 
       //CHANGE
@@ -52,7 +52,7 @@ function App() {
       console.log(obj);
 
       // Draw mesh
-      const ctx = canvasRef.current.getContext("2d");
+      const ctx = canvasref.current.getContext("2d");
       drawRectangle(obj, ctx);
     }
   };
@@ -65,7 +65,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Webcam
-          ref={webcamRef}
+          ref={webcamref}
           muted={true}
           style={{
             position: "absolute",
@@ -80,7 +80,7 @@ function App() {
           }}
         />
         <canvas
-          ref={canvasRef}
+          ref={canvasref}
           style={{
             position: "absolute",
             marginLeft: "auto",
