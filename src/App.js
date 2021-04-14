@@ -20,6 +20,7 @@ function App() {
       detect(net);
     }, 10);
   };
+  
   const detect = async (net) => {
     // Check data is available
     if (
