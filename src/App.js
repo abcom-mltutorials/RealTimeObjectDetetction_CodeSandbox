@@ -14,7 +14,7 @@ function App() {
   // Main function
   const runCoco = async () => {
     const net = await cocossd.load();
-    console.log("Handpose model loaded.");
+    console.log("Handtrack Detection for Realtime ");
     //  Loop and detect hands
     setInterval(() => {
       detect(net);
